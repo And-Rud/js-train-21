@@ -303,7 +303,7 @@ class Performance {
   }
   info = () => {
     console.log(
-      `Гурт ${this.#band} виступить в ${
+      `Гурт ${this.#band.name} виступить в ${
         this.#location
       } ${this.#date.toLocaleDateString()}`
     );
@@ -342,7 +342,7 @@ class Concert extends Performance {
   }
   info = () => {
     console.log(
-      `Гурт ${super.band} виступить в ${
+      `Гурт ${super.band.name} виступить в ${
         super.location
       } ${this.#date.toLocaleDateString()}, ціна квитка ${this.#ticketPrice}`
     );
@@ -499,15 +499,11 @@ let songwriter = new SongWriter(["Yesterday", "Hey Jude", "Let It Be"]);
  * ------------------------------------------------------
  * | Властивість |       Значення                       |
  * |-------------|--------------------------------------|
- * | band        | "The Beatles"                        |
+ * | band        | baand                                |
  * | location    | "Liverpool"                          |
  * | date        | new Date('2023-08-01')               |
  */
-let performance = new Performance(
-  `The Beatles`,
-  "Liverpool",
-  new Date("2023-08-01")
-);
+let performance = new Performance(band, "Liverpool", new Date("2023-08-01"));
 Object.assign(LeadSinger.prototype, songwriter);
 // використання Object.assign() для успадкування властивостей songwriter для LeadSinger.prototype
 
@@ -516,17 +512,12 @@ Object.assign(LeadSinger.prototype, songwriter);
  * ---------------------------------------------------
  * | Властивість |  Значення        |
  * |-------------|------------------|
- * | band        | "The Beatles"    |
+ * | band        | band             |
  * | location    | "BBC studios"    |
  * | date        | new Date("1994-07-06") |
  * | ticketPrice | 100              |
  */
-let concert = new Concert(
-  "The Beatles",
-  `BBC studios`,
-  new Date("1994-07-06"),
-  100
-);
+let concert = new Concert(band, `BBC studios`, new Date("1994-07-06"), 100);
 /*
  * Створення leadsinger екземпляра класу LeadSinger
  * -------------------------------------
